@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/forum/static/css/main.14103809.css",
-    "main.js": "/forum/static/js/main.f0f888ce.js",
+    "main.css": "/forum/static/css/main.21c128c6.css",
+    "main.js": "/forum/static/js/main.aa41c849.js",
     "static/js/787.cb959edb.chunk.js": "/forum/static/js/787.cb959edb.chunk.js",
     "static/media/lato-regular.ttf": "/forum/static/media/lato-regular.79164ee524feb6583a94.ttf",
     "static/media/logo2.svg": "/forum/static/media/logo2.62846e9a3e2e4adc53a0121a0ac5a1d3.svg",
     "index.html": "/forum/index.html",
-    "main.14103809.css.map": "/forum/static/css/main.14103809.css.map",
-    "main.f0f888ce.js.map": "/forum/static/js/main.f0f888ce.js.map",
+    "main.21c128c6.css.map": "/forum/static/css/main.21c128c6.css.map",
+    "main.aa41c849.js.map": "/forum/static/js/main.aa41c849.js.map",
     "787.cb959edb.chunk.js.map": "/forum/static/js/787.cb959edb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.14103809.css",
-    "static/js/main.f0f888ce.js"
+    "static/css/main.21c128c6.css",
+    "static/js/main.aa41c849.js"
   ]
 }
