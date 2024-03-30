@@ -1,0 +1,8 @@
+.following-cards{
+    background-color: var(--light-gray);
+    width: 360px;
+    padding: 0.8rem;
+    margin: 1rem 0.8rem;
+    border-radius: 10px;
+    border: 1px solid var(--lightest-gray);
+}
