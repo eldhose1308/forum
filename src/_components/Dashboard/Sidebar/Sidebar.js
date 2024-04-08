@@ -18,8 +18,8 @@ const Sidebar = (props) => {
 
     return (
         <React.Fragment>
-            {isSidebarOpen ? <div className="overlay xl:hidden"></div> : null}
-            <div className={`sidebar border-r border-another text-default w-80 h-full overflow-scroll grow-1 h-screen relative ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed sm:hidden md:hidden lg:hidden'} xl:display`}>
+            {isSidebarOpen ? <div className="overlay z-10 xl:hidden"></div> : null}
+            <div className={`sidebar border-r border-another text-default w-80 h-full overflow-scroll grow-1 h-screen relative ${isSidebarOpen ? 'translate-x-full-right sidebar-open z-10' : 'sidebar-closed sm:hidden md:hidden lg:hidden'} xl:display`}>
                 <Flex direction='column' wrap='none' alignItems='none' justifyContent='none' width='none' className='bg-default rounded-md h-full text-default p-3 text-sm'>
                     <div className="">
 

@@ -12,6 +12,7 @@ import AuthNavigations from "_modules/auth/_components/AuthNavigations";
 
 import { useToast } from "_contexts/ToastProvider";
 import useAuth from "_hooks/useAuth";
+import { useTopLoader } from "_contexts/TopLoaderProvider";
 
 
 export default function SignUp() {
@@ -56,7 +57,7 @@ export default function SignUp() {
                         <Separator className="my-5" />
 
                         <CardFooter>
-                            <Link to="/home" className="w-full">
+                            <Link to="/user/home" className="w-full">
                                 <Button variant='custom'>
                                     <span className="mx-2">
                                         Continue as Guest

@@ -33,13 +33,13 @@ const Toast = (props) => {
 
     return (
         <div className="flex flex-col">
-            <div class={`dialog dialog-${positionX} dialog-${positionY} z-10 fixed flex items-center justify-end animate-slide-in-y`}>
-                <div class="max-w-sm min-w-md">
+            <div class={`dialog dialog-${positionX} dialog-${positionY} z-50 fixed flex items-center justify-end animate-slide-in-y`}>
+                <div class="max-w-sm min-w-sm">
                     <div class={`card border  border-custom bg-default rounded-xl m-3`}>
 
                         <div class="card-body flex flex-col px-3 py-1">
                             {/* <div className="conic"></div> */}
-                            <div class="flex justify-between">
+                            <div class="flex flex-nowrap justify-between">
                                 <div className="flex flex-col my-2">
                                     <span class="text-default">
                                         {currentToastIcon}
@@ -50,10 +50,10 @@ const Toast = (props) => {
                                     </span>
                                 </div>
                                 <div class="grow-2 my-2 px-3">
-                                    <h3 class={`text-default text-md`}>{heading}</h3>
-                                    <p class="text-secondary space-y-1 text-xs">{description}</p>
+                                    <p class={`text-default text-sm`}>{heading}</p>
+                                    {description ? <p class="text-secondary space-y-1 text-xs">{description}</p> : null}
                                 </div>
-                                <div>
+                                <div className="my-2">
                                     <button class="text-default bg-transparent" onClick={hideToast}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
                                     </button>

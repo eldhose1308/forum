@@ -60,7 +60,7 @@
 
 body {
     background-color: var(--bg-newone);
-    margin: 0;
+    /* margin: 0; */
 }
 
 blockquote,
@@ -221,6 +221,9 @@ button {
     color: var(--secondary)
 }
 
+.text-dark {
+    color: var(--dark)
+}
 .container {}
 
 .text-center {
@@ -248,6 +251,10 @@ button {
     flex-wrap: wrap;
 }
 
+.flex-nowrap{
+    flex-wrap: nowrap;
+}
+
 .flex-col {
     flex-direction: column;
 }
@@ -268,6 +275,10 @@ button {
     height: 0.75rem;
 }
 
+.h-8{
+    height: 2rem;
+}
+
 .h-10 {
     height: 2.5rem;
 }
@@ -275,6 +286,12 @@ button {
 .h-9 {
     height: 2.25rem;
 }
+
+
+.w-8{
+    width: 2rem;
+}
+
 
 .w-10 {
     width: 2.5rem;

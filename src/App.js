@@ -23,6 +23,7 @@ import FollowingsPage from "_pages/home/FollowingsPage/FollowingsPage";
 import Template from "_components/Dashboard/Template/Template";
 import ToastProvider from "_contexts/ToastProvider";
 import AuthProvider from "_contexts/AuthProvider";
+import UserProfile from "_pages/userProfile/UserProfile";
 
 
 const NoDashboardLayout = () => {
@@ -38,7 +39,7 @@ const WithDashboardLayout = () => {
   return (
     <React.Fragment>
       <Template>
-          <Outlet />
+        <Outlet />
       </Template>
     </React.Fragment>
   )
@@ -66,27 +67,31 @@ const router = createHashRouter([
     errorElement: <div>Error</div>
   },
   {
-    path: "/home",
+    path: "/user",
     element: <WithDashboardLayout />,
     children: [
       {
-        path: "/home",
+        path: "/user/home",
         element: <Home />,
       },
       {
-        path: "/home/posts/:id",
+        path: "/user/profile",
+        element: <UserProfile />,
+      },
+      {
+        path: "/user/posts/:id",
         element: <PostPage />,
       },
       {
-        path: "/home/followings",
+        path: "/user/followings",
         element: <FollowingsPage />,
       },
       {
-        path: "/home/search",
+        path: "/user/search",
         element: <Search />,
       },
       {
-        path: "/home/settings",
+        path: "/user/settings",
         element: <div>settings</div>,
       },
     ],
@@ -100,12 +105,16 @@ const router = createHashRouter([
 function App() {
   return (
     <React.Fragment>
-        
-          <ToastProvider>
-            <AuthProvider>
-              <RouterProvider router={router} />
-            </AuthProvider>
-          </ToastProvider>
+
+      <ToastProvider>
+        <TopLoaderProvider>
+
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
+          
+        </TopLoaderProvider>
+      </ToastProvider>
 
     </React.Fragment>
   );

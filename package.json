@@ -1,6 +1,6 @@
 {
-  "homepage": "http://eldhose1308.github.io/make-your-decisions",
-  "name": "decision-v2",
+  "homepage": "http://eldhose1308.github.io/forum",
+  "name": "forum-v1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -43,6 +43,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.0"
+    "gh-pages": "^6.1.1"
   }
 }

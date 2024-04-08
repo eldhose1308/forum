@@ -8,22 +8,32 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 import { useTemplateProvider } from "../Template/Template";
 
 import useAuth from "_hooks/useAuth";
+import Avatar from "_components/UI/Avatar/Avatar";
+import Drawer from "_components/UI/Drawer/Drawer";
+import UserProfileMenu from "_modules/profile/_components/UserProfileMenu";
 
-const Header = () => {
+import useDrawer from "_hooks/useDrawer";
+
+const Header = (props) => {
+    const { isSidebarNeeded = true } = props;
+
     const { toggleSidebar } = useTemplateProvider(null)
-    const { isAuthenticated, logout } = useAuth()
+    const { isDrawerOpen, closeDrawer, openDrawer } = useDrawer()
+    const { isAuthenticated } = useAuth()
 
     return (
-        <Flex direction='row' justifyContent='spaceBetween' className='header bg-default border-b border-another px-4 py-2 text-default' style={{ zIndex: '7' }}>
+        <Flex direction='row' justifyContent='spaceBetween' className='header bg-default border-b border-another px-4 py-2 text-default' style={{ zIndex: '11' }}>
             <div className="flex px-2">
                 <div className="mx-1">
                     Logo
                 </div>
-                <div className="mx-1 hidden md:display sm:display md:display lg:display bar" onClick={toggleSidebar}>
-                    <span className="cursor-pointer px-2 py-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart" transform="rotate(90)"><line x1="12" x2="12" y1="20" y2="10" /><line x1="18" x2="18" y1="20" y2="4" /><line x1="6" x2="6" y1="20" y2="16" /></svg>
-                    </span>
-                </div>
+                {isSidebarNeeded ? (
+                    <div className="mx-1 hidden md:display sm:display md:display lg:display bar" onClick={toggleSidebar}>
+                        <span className="cursor-pointer px-2 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart" transform="rotate(90)"><line x1="12" x2="12" y1="20" y2="10" /><line x1="18" x2="18" y1="20" y2="4" /><line x1="6" x2="6" y1="20" y2="16" /></svg>
+                        </span>
+                    </div>
+                ) : null}
             </div>
             <div className="flex px-2">
                 <span className="mx-2 my-2 cursor-pointer">
@@ -50,12 +60,19 @@ const Header = () => {
 
                 <span className="cursor-pointer">
                     {isAuthenticated ? (
-                        <Button variant='outline' size='sm' onClick={logout}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></svg>
-                            <span className="mx-2">
-                                SignOut
-                            </span>
-                        </Button>
+                        <React.Fragment>
+
+                            <Button variant='link' size='xs' onClick={openDrawer}>
+                                <Avatar size='xs' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu2whjzwoBz71waeE07wh1L_sfjpdm6IIf7g&amp;usqp=CAU" />
+                            </Button>
+
+                            {/* <Button variant='outline' size='sm' onClick={logout}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /><polyline points="10 17 15 12 10 7" /><line x1="15" x2="3" y1="12" y2="12" /></svg>
+                                    <span className="mx-2">
+                                        SignOut
+                                    </span>
+                                </Button> */}
+                        </React.Fragment>
                     ) : (
                         <Link to="/signin" className="w-full">
                             <Button variant='outline' size='sm'>
@@ -69,6 +86,15 @@ const Header = () => {
 
                 </span>
             </div>
+
+
+            {isDrawerOpen ?
+                (
+                    <Drawer hide={closeDrawer}>
+                        <UserProfileMenu />
+                    </Drawer>
+                ) : null
+            }
         </Flex>
     )
 }

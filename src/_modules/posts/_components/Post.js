@@ -9,11 +9,11 @@ import Avatar from '_components/UI/Avatar/Avatar';
 
 
 const Post = (props) => {
-    const { hasFollowButton = false } = props;
+    const { hasFollowButton = true } = props;
 
     return (
         <React.Fragment>
-            <Card variant='default' className='hover-secondary'>
+            <Card border='ghost' variant='default' className='border hover-border-another'>
                 <CardHeader>
                     <Flex justifyContent='spaceBetween' alignItems='none'>
                         <div class="flex mb-2">

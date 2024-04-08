@@ -1,9 +1,10 @@
 import React from "react";
+
 import Portal from "_components/Misc/Portal";
 
 import './TopLoader.css'
 
-const TopLoader = ({ isLoading = true }) => {
+const TopLoader = ({ progress, isLoading = true }) => {
     if(!isLoading){
         return null
     }
@@ -11,7 +12,9 @@ const TopLoader = ({ isLoading = true }) => {
 
     return (
         <Portal>
-            <div id="top-loading"></div>
+            <div id="top-loading"  style={{ width: `${progress}%` }}>
+                <span id="loader"></span>
+            </div>
         </Portal>
     )
 }

@@ -5,22 +5,27 @@ const LoaderContext = createContext();
 
 const TopLoaderProvider = ({ children }) => {
     const [ isLoading, setIsLoading ] = useState(false);
+    const [ progress, setProgress ] = useState(0)
 
     const showTopLoader = () => {
+        setProgress(0)
         setIsLoading(true)
     }
 
     const hideTopLoader = () => {
-        setIsLoading(false)
+        setTimeout(() => {
+            setProgress(0)
+            setIsLoading(false)
+        }, 1000)
     }
 
-    const loaderObj = [
-        showTopLoader, hideTopLoader, isLoading
-    ]
+    const loaderObj = {
+        showTopLoader, hideTopLoader, isLoading, progress, setProgress
+    }
 
     return (
         <LoaderContext.Provider value={loaderObj}>
-            <TopLoader isLoading={isLoading} />
+            <TopLoader progress={progress} isLoading={isLoading} />
             {children}
         </LoaderContext.Provider>
     )

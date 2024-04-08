@@ -23,13 +23,13 @@ const Template = ({ children, ...props }) => {
     return (
         <TemplateContext.Provider value={{ isSidebarOpen, hideSidebar, toggleSidebar }}>
             <Flex justifyContent='spaceBetween'>
-                <Header />
-                <Flex justifyContent='spaceBetween' alignItems='start'>
+                <Header isSidebarNeeded={isSidebarNeeded} />
+                <Flex wrap='none' justifyContent='spaceBetween' alignItems='start'>
                     {isSidebarNeeded && <Sidebar /> }
                     <div className="content border-r border-another p-3 text-default grow-4 overflow-scroll h-screen">
                         {children}
                     </div>
-                    {isRightbarNeeded && <div className="sidebar p-3 text-default w-80 grow-1 overflow-scroll h-screen sm:hidden md:hidden lg:display"> This is sidebar </div>}
+                    {/* {isRightbarNeeded && <div className="sidebar p-3 text-default w-80 grow-1 overflow-scroll h-screen sm:hidden md:hidden lg:display"> This is sidebar </div>} */}
                 </Flex>
             </Flex>
         </TemplateContext.Provider>

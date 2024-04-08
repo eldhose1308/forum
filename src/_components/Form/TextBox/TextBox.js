@@ -31,13 +31,13 @@ const TextBox = (props) => {
 
                 <div class="inline-flex max-w-sm w-full relative">
                     <input
-                        className="flex h-9 w-full toggle-placeholders disabled-50
+                        className="flex h-12 w-full toggle-placeholders disabled-50
                             rounded-md border border-custom input border-input bg-default text-default
                             px-3 py-2 text-sm focus-border-2
                             ring-offset-background"
                         {...otherProps}    
                         />
-                    {labelName ? <label className="label text-default absolute px-3 m-2 duration-400">{labelName}</label> : null}
+                    {labelName ? <label className="label text-default absolute px-3 py-3 duration-400">{labelName}</label> : null}
                 </div>
                 {validationMsg ? (
                     <div className="flex flex-col mx-2 space-y-1">
