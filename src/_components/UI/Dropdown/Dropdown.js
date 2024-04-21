@@ -8,12 +8,15 @@ const DropdownMenu = ({ children }) => {
   const [selectedItem, setSelectedItem] = useState()
   const [options, setOptions] = useState([])
 
+  const hide = () => setPopupOpen(false)
+  const toggle = () => setPopupOpen((prevState) => !prevState)
+
   return (
-    <DropdownContext.Provider value={{ isPopupOpen, setPopupOpen, setSelectedItem, selectedItem }}>
+    <DropdownContext.Provider value={{ isPopupOpen, toggle, hide, setSelectedItem, selectedItem }}>
       <div
-        className="dropdown mx-2 my-2"
+        className="dropdown mx-2 my-2 inline-flex"
         tabIndex={0}
-        onBlur={() => setPopupOpen(false)}
+        onBlur={hide}
       >
         {children}
       </div>
@@ -22,11 +25,11 @@ const DropdownMenu = ({ children }) => {
 }
 
 const DropdownMenuTrigger = ({ children }) => {
-  const { setPopupOpen, selectedItem } = useContext(DropdownContext)
+  const { toggle, selectedItem } = useContext(DropdownContext)
   return (
     <div
-      className="relative"
-      onClick={(e) => setPopupOpen(prev => !prev)}
+      className=""
+      onClick={toggle}
     >
       {children}
     </div>
@@ -34,24 +37,27 @@ const DropdownMenuTrigger = ({ children }) => {
 }
 
 const DropdownMenuContent = ({ children }) => {
-  const { isPopupOpen } = useContext(DropdownContext)
+  const { isPopupOpen, hide } = useContext(DropdownContext)
 
   return (
-    <div className={`dropdown-box border border-another min-w-xs rounded-md my-1 bg-default fixed ${isPopupOpen ? '' : 'hidden'}`}>
-      <div className="flex flex-col my-1 p-1 text-sm">
-        {children}
+    <React.Fragment>
+      {isPopupOpen && <div onClick={hide} className="overlay overlay-transparent z-50"></div>}
+      <div className={`dropdown-box z-50 border border-another min-w-xs rounded-md mt-9 bg-default fixed ${isPopupOpen ? '' : 'hidden'}`}>
+        <div className="flex flex-col my-1 p-1 text-sm">
+          {children}
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 
 const DropdownMenuItem = ({ onChange, value, children, ...props }) => {
 
-  const { setPopupOpen, selectedItem, setSelectedItem } = useContext(DropdownContext)
+  const { hide, selectedItem, setSelectedItem } = useContext(DropdownContext)
 
   const handleSelect = (e) => {
     e.stopPropagation()
-    setPopupOpen(false)
+    hide()
     setSelectedItem(value)
     onChange && onChange(value)
   }
@@ -63,8 +69,8 @@ const DropdownMenuItem = ({ onChange, value, children, ...props }) => {
   )
 }
 
-const DropdownMenuItemGroup = ({ options=[], value, onChange }) => {
-  
+const DropdownMenuItemGroup = ({ options = [], value, onChange }) => {
+
 
   return (
     <React.Fragment>

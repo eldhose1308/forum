@@ -13,13 +13,13 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default: 'btn bg-default text-custom',
-                accent: 'btn bg-accent text-dark',
+                accent: 'btn bg-accent text-custom',
                 secondary: 'btn bg-secondary text-default',
-                custom: 'btn bg-custom text-default hover',
+                custom: 'btn bg-custom text-default hover-accent hover-text-custom',
                 destructive: 'btn bg-destructive',
-                outline: 'btn bg-transparent text-default border border-secondary',
+                outline: 'btn bg-outline text-default border border-secondary',
                 link: 'btn bg-transparent',
-                ghost: 'bg-transparent text-default'
+                ghost: 'bg-transparent text-default hover-accent hover-text-custom'
             },
             size: {
                 default: "h-10 px-4 py-2",

@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from "react";
 
 import Post from '_modules/posts/_components/Post';
 import { TabItem, Tabs } from '_components/UI/Tabs/Tabs';
@@ -11,7 +10,7 @@ import Avatar from "_components/UI/Avatar/Avatar";
 import Flex from "_components/Misc/Flex/Flex";
 import Separator from "_components/Misc/Separator/Separator";
 
-const Home = () => {
+const Popular = (props) => {
     const postArr = "1234567890".split("");
 
     return (
@@ -22,33 +21,13 @@ const Home = () => {
 
                     <Flex direction='column' alignItems='none' justifyContent='none' width='none' className='posts-filters bg-default border-b border-another sticky top-0'>
 
-                        <Tabs hasNav>
-                            <TabItem isActive={true} onClick={() => { }} >All</TabItem>
-                            <TabItem>Frequently</TabItem>
-                            <TabItem>Visited</TabItem>
-                            <TabItem>Tags</TabItem>
-                            <TabItem>here</TabItem>
-                            <TabItem>Frequently</TabItem>
-                            <TabItem>Visited</TabItem>
-                            <TabItem>Tags</TabItem>
-                            <TabItem>here</TabItem>
-                            <TabItem>Frequently</TabItem>
-                            <TabItem>Visited</TabItem>
-                            <TabItem>Tags</TabItem>
-                            <TabItem>here</TabItem>
-                            <TabItem>Frequently</TabItem>
-                            <TabItem>Visited</TabItem>
-                            <TabItem>Tags</TabItem>
-                            <TabItem>here</TabItem>
-                            <TabItem>Frequently</TabItem>
-                            <TabItem>Visited</TabItem>
-                            <TabItem>Tags</TabItem>
-                            <TabItem>here</TabItem>
-                            <TabItem>Frequently</TabItem>
-                            <TabItem>Visited</TabItem>
-                            <TabItem>Tags</TabItem>
-                            <TabItem>here</TabItem>
+                        <Tabs>
+                            <TabItem isActive={true} onClick={() => { alert('show posts...') }} >Popluar Users</TabItem>
+                            <TabItem>Popluar Communities</TabItem>
+                            <TabItem>Popluar Posts</TabItem>
+                            <TabItem>Popluar Tags</TabItem>
                         </Tabs>
+
 
                         <Separator className='my-2' />
 
@@ -105,7 +84,7 @@ const Home = () => {
                         <CardTitle>
                             <Flex justifyContent='spaceBetween' className='px-3 m-3'>
                                 <Typography size='lg'>
-                                    Communities
+                                    Suggested Communities
                                 </Typography>
                             </Flex>
                         </CardTitle>
@@ -171,7 +150,7 @@ const Home = () => {
                         <CardTitle>
                             <Flex justifyContent='spaceBetween' className='px-3 m-3'>
                                 <Typography size='lg'>
-                                    Users
+                                    Something else
                                 </Typography>
                             </Flex>
 
@@ -190,4 +169,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Popular

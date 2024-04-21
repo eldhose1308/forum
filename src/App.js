@@ -24,81 +24,30 @@ import Template from "_components/Dashboard/Template/Template";
 import ToastProvider from "_contexts/ToastProvider";
 import AuthProvider from "_contexts/AuthProvider";
 import UserProfile from "_pages/userProfile/UserProfile";
+import { routes } from "_utils/routes";
 
 
-const NoDashboardLayout = () => {
-  return (
-    <Outlet />
-  )
-}
+// export const NoDashboardLayout = () => {
+//   return (
+//     <Outlet />
+//   )
+// }
 
 
-const WithDashboardLayout = () => {
-  const token = useDecodeToken();
+// export const WithDashboardLayout = () => {
+//   const token = useDecodeToken();
 
-  return (
-    <React.Fragment>
-      <Template>
-        <Outlet />
-      </Template>
-    </React.Fragment>
-  )
-}
+//   return (
+//     <React.Fragment>
+//       <Template>
+//         <Outlet />
+//       </Template>
+//     </React.Fragment>
+//   )
+// }
 
 
-const router = createHashRouter([
-  {
-    path: "/",
-    element: <NoDashboardLayout />,
-    children: [
-      {
-        path: "/",
-        element: <SignUp />,
-      },
-      {
-        path: "/signup",
-        element: <SignUp />,
-      },
-      {
-        path: "/signin",
-        element: <SignIn />,
-      },
-    ],
-    errorElement: <div>Error</div>
-  },
-  {
-    path: "/user",
-    element: <WithDashboardLayout />,
-    children: [
-      {
-        path: "/user/home",
-        element: <Home />,
-      },
-      {
-        path: "/user/profile",
-        element: <UserProfile />,
-      },
-      {
-        path: "/user/posts/:id",
-        element: <PostPage />,
-      },
-      {
-        path: "/user/followings",
-        element: <FollowingsPage />,
-      },
-      {
-        path: "/user/search",
-        element: <Search />,
-      },
-      {
-        path: "/user/settings",
-        element: <div>settings</div>,
-      },
-    ],
-    errorElement: <div>Error</div>
-  },
-
-]);
+const router = createHashRouter(routes);
 
 
 

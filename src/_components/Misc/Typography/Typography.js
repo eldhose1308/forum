@@ -16,7 +16,7 @@ const variantsMapping = {
 
 
 const typographyVariants = cva(
-    'mt-2',
+    'mt-1',
     {
         variants: {
             variant: {
@@ -27,6 +27,7 @@ const typographyVariants = cva(
                 destructive: 'text-destructive',
             },
             size: {
+                xs: "text-xs",
                 sm: "text-sm",
                 md: "text-md",
                 lg: "text-lg",

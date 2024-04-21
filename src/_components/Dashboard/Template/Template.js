@@ -26,7 +26,7 @@ const Template = ({ children, ...props }) => {
                 <Header isSidebarNeeded={isSidebarNeeded} />
                 <Flex wrap='none' justifyContent='spaceBetween' alignItems='start'>
                     {isSidebarNeeded && <Sidebar /> }
-                    <div className="content border-r border-another p-3 text-default grow-4 overflow-scroll h-screen">
+                    <div className="content border-r border-another px-3 text-default grow-4 overflow-scroll h-screen">
                         {children}
                     </div>
                     {/* {isRightbarNeeded && <div className="sidebar p-3 text-default w-80 grow-1 overflow-scroll h-screen sm:hidden md:hidden lg:display"> This is sidebar </div>} */}

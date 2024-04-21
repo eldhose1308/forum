@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 
 import Flex from "_components/Misc/Flex/Flex";
@@ -15,6 +14,8 @@ import UserProfileMenu from "_modules/profile/_components/UserProfileMenu";
 import useDrawer from "_hooks/useDrawer";
 
 const Header = (props) => {
+ 
+
     const { isSidebarNeeded = true } = props;
 
     const { toggleSidebar } = useTemplateProvider(null)
@@ -22,7 +23,7 @@ const Header = (props) => {
     const { isAuthenticated } = useAuth()
 
     return (
-        <Flex direction='row' justifyContent='spaceBetween' className='header bg-default border-b border-another px-4 py-2 text-default' style={{ zIndex: '11' }}>
+        <Flex direction='row' justifyContent='spaceBetween' className='header bg-default border-b border-another px-4 py-2 text-default sticky' style={{ zIndex: '11' }}>
             <div className="flex px-2">
                 <div className="mx-1">
                     Logo
