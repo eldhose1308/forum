@@ -4,12 +4,13 @@ import React from 'react'
 import Post from '_modules/posts/_components/Post';
 import { TabItem, Tabs } from '_components/UI/Tabs/Tabs';
 import { Card, CardContent, CardFooter, CardTitle } from "_components/Misc/Card/Card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItemGroup, DropdownMenuTrigger } from "_components/UI/Dropdown/Dropdown";
 import Typography from "_components/Misc/Typography/Typography";
 import { Button } from "_components/Form";
 import Avatar from "_components/UI/Avatar/Avatar";
 import Flex from "_components/Misc/Flex/Flex";
 import Separator from "_components/Misc/Separator/Separator";
+
+import { FilterSort, FilterViews } from "_modules/filters/_components";
 
 const Home = () => {
     const postArr = "1234567890".split("");
@@ -54,39 +55,13 @@ const Home = () => {
 
                         <Flex justifyContent='none'>
 
-                            <DropdownMenu>
-                                <DropdownMenuTrigger>
-                                    <div className="flex items-center cursor-pointer hover-custom rounded-md">
-                                        <span className="mx-2 my-2 text-sm">
-                                            Sort by
-                                        </span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6" /></svg>
-                                    </div>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent>
-                                    <DropdownMenuItemGroup
-                                        options={[{ id: 'latest', text: 'Latest' }, { id: 'oldest', text: 'Oldest' }, { id: 'most_viewed', text: 'Most Viewed' }]}
-                                        onChange={(value) => alert(value)}
-                                    />
-                                </DropdownMenuContent>
-                            </DropdownMenu>
+                        <FilterSort
+                        onSelect={() => { }}
+                    />
 
-                            <DropdownMenu>
-                                <DropdownMenuTrigger>
-                                    <div className="flex items-center cursor-pointer hover-custom rounded-md">
-                                        <span className="mx-2 my-2 text-sm">
-                                            Latest
-                                        </span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6" /></svg>
-                                    </div>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent>
-                                    <DropdownMenuItemGroup
-                                        options={[{ id: 'latest', text: 'Latest' }, { id: 'oldest', text: 'Oldest' }, { id: 'most_viewed', text: 'Most Viewed' }]}
-                                        onChange={(value) => alert(value)}
-                                    />
-                                </DropdownMenuContent>
-                            </DropdownMenu>
+
+                    <FilterViews
+                    />
                         </Flex>
 
                     </Flex>

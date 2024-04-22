@@ -12,7 +12,7 @@ const DropdownMenu = ({ children }) => {
   const toggle = () => setPopupOpen((prevState) => !prevState)
 
   return (
-    <DropdownContext.Provider value={{ isPopupOpen, toggle, hide, setSelectedItem, selectedItem }}>
+    <DropdownContext.Provider value={{ isPopupOpen, toggle, hide, setSelectedItem, setOptions, selectedItem }}>
       <div
         className="dropdown mx-2 my-2 inline-flex"
         tabIndex={0}
@@ -25,13 +25,24 @@ const DropdownMenu = ({ children }) => {
 }
 
 const DropdownMenuTrigger = ({ children }) => {
-  const { toggle, selectedItem } = useContext(DropdownContext)
+  const { toggle, selectedItem={} } = useContext(DropdownContext)
   return (
     <div
       className=""
       onClick={toggle}
     >
-      {children}
+      <div className="flex items-center cursor-pointer hover-custom rounded-md text-sm">
+        <span className="mx-2 my-2 text-default">
+          {children}
+        </span>
+        
+        {selectedItem.text && (
+          <span className="mx-2 my-2 px-2 text-xs text-custom rounded-md bg-accent hover-accent hover-text-custom">
+            {selectedItem.text}
+          </span>
+        )}
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6" /></svg>
+      </div>
     </div>
   )
 }
@@ -70,7 +81,15 @@ const DropdownMenuItem = ({ onChange, value, children, ...props }) => {
 }
 
 const DropdownMenuItemGroup = ({ options = [], value, onChange }) => {
+  const { setOptions, setSelectedItem } = useContext(DropdownContext)
 
+
+  // normalise the options and set value if exists or else set first item as default value if a flag is present else no items are selected by default
+  useEffect(() => {
+    const selectedItem = options[0] || ''
+    setOptions(options)
+    setSelectedItem(selectedItem)
+  }, [options, setOptions, setSelectedItem])
 
   return (
     <React.Fragment>
@@ -78,8 +97,9 @@ const DropdownMenuItemGroup = ({ options = [], value, onChange }) => {
         const { id, text } = option || {}
         return (
           <DropdownMenuItem
+            key={id}
             onChange={onChange}
-            value={id}
+            value={option}
           >
             {text}
           </DropdownMenuItem>

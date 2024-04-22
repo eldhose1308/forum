@@ -83,7 +83,7 @@ body.light{
 
   --custom: #fafafa;
   --default: #09090b;
-  --secondary: #18181b;
+  --secondary: #606064;
   --destructive: #fa4d56;
 
   --overlay-color: rgba(255, 255, 255, 0.5);
@@ -760,7 +760,10 @@ textarea::placeholder {
 
 .max-w-full {
   max-width: 100%;
+}
 
+.max-w-60{
+  max-width: 15rem;
 }
 
 .transition-colors {

@@ -11,7 +11,7 @@ const Tag = () => {
         <Card size='sm'>
             <CardHeader>
                 <Flex justifyContent='spaceBetween'>
-                    <Typography>#javascript</Typography>
+                    <Typography textVariant='bold'>#javascript</Typography>
                     <Typography variant='secondary'>123 posts</Typography>
 
                 </Flex>

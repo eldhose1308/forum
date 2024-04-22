@@ -2,14 +2,16 @@ import Home from '_pages/home/Home/Home'
 import { SignIn, SignUp } from '_pages/auth'
 import UserProfile from '_pages/userProfile/UserProfile'
 import PostPage from '_pages/home/PostPage/PostPage'
-import FollowingsPage from '_pages/home/FollowingsPage/FollowingsPage'
 import Search from '_pages/home/Search/Search'
 import { NoDashboardLayout, WithDashboardLayout } from 'AppMy'
 import Popular from '_pages/home/Popular/Popular'
+import Tags from '_pages/home/Tags'
+import Communities from '_pages/home/Communities'
 
+import { PATHS } from './paths'
 
   
-export const routes = [
+export const ROUTES = [
     {
       path: "/",
       element: <NoDashboardLayout />,
@@ -19,11 +21,11 @@ export const routes = [
           element: <SignUp />,
         },
         {
-          path: "/signup",
+          path: PATHS.signup,
           element: <SignUp />,
         },
         {
-          path: "/signin",
+          path: PATHS.signin,
           element: <SignIn />,
         },
       ],
@@ -34,15 +36,19 @@ export const routes = [
       element: <WithDashboardLayout />,
       children: [
         {
-          path: "/user/home",
+          path: PATHS.home,
           element: <Home />,
         },
         {
-          path: "/user/popular",
+          path: PATHS.popular,
           element: <Popular />,
         },
         {
-          path: "/user/profile",
+            path: PATHS.tags,
+            element: <Tags />,
+        },
+        {
+          path: PATHS.profile,
           element: <UserProfile />,
         },
         {
@@ -50,8 +56,8 @@ export const routes = [
           element: <PostPage />,
         },
         {
-          path: "/user/followings",
-          element: <FollowingsPage />,
+          path: PATHS.communities,
+          element: <Communities />,
         },
         {
           path: "/user/search",

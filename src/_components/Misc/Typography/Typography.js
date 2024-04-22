@@ -32,18 +32,22 @@ const typographyVariants = cva(
                 md: "text-md",
                 lg: "text-lg",
                 xl: "text-xl",
+            },
+            textVariant: {
+                bold: "font-bold",
             }
         },
         defaultVariants: {
             variant: 'default',
             size: 'sm',
+            textVariant: ''
         }
     }
 )
 
-const Typography = ({ variant, size, type, className, children, ...props }) => {
+const Typography = ({ variant, size, textVariant, type, className, children, ...props }) => {
     const classNames = typographyVariants({
-        variant, size,
+        variant, size, textVariant,
         className,
     });
 
