@@ -9,6 +9,7 @@ import Tags from '_pages/home/Tags'
 import Communities from '_pages/home/Communities'
 
 import { PATHS } from './paths'
+import SeeLater from '_pages/home/SeeLater'
 
   
 export const ROUTES = [
@@ -58,6 +59,10 @@ export const ROUTES = [
         {
           path: PATHS.communities,
           element: <Communities />,
+        },
+        {
+          path: PATHS.seeLater,
+          element: <SeeLater />,
         },
         {
           path: "/user/search",

@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Drawer = ({ hide, heading='', children, ...props }) => {
+const Drawer = ({ hide, isActive, heading='', children, ...props }) => {
+
+    if(!isActive){
+        return null
+    }
+
 
     return (
         <React.Fragment>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
 import Post from '_modules/posts/_components/Post';
@@ -9,11 +9,39 @@ import { Button } from "_components/Form";
 import Avatar from "_components/UI/Avatar/Avatar";
 import Flex from "_components/Misc/Flex/Flex";
 import Separator from "_components/Misc/Separator/Separator";
+import ResponsiveDrawer from '_components/UI/Drawer/ResponsiveDrawer';
 
 import { FilterSort, FilterViews } from "_modules/filters/_components";
+import MiniCommunityList from '_modules/communities/_components/MiniCommunityList';
+// import useDrawer from '_hooks/useDrawer';
 
 const Home = () => {
+    // const { isDrawerOpen, closeDrawer, openDrawer } = useDrawer()
+
     const postArr = "1234567890".split("");
+
+
+    // useEffect(() => {
+
+    //     const handleResize = () => {
+    //         const widthToCheck = 1012;
+    //         const currentWidth = window.innerWidth;
+
+
+    //         if (!isDrawerOpen && currentWidth <= widthToCheck) {
+    //             openDrawer()
+    //         } else {
+    //             closeDrawer()
+    //         }
+    //     };
+
+    //     handleResize();
+    //     window.addEventListener('resize', handleResize);
+
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     };
+    // }, []);
 
     return (
         <React.Fragment>
@@ -55,13 +83,13 @@ const Home = () => {
 
                         <Flex justifyContent='none'>
 
-                        <FilterSort
-                        onSelect={() => { }}
-                    />
+                            <FilterSort
+                                onSelect={() => { }}
+                            />
 
 
-                    <FilterViews
-                    />
+                            <FilterViews
+                            />
                         </Flex>
 
                     </Flex>
@@ -74,92 +102,37 @@ const Home = () => {
                     </div>
 
                 </Flex>
-                <Flex direction='column' alignItems='none' justifyContent='spaceBetween' width='none' className='min-w-md max-w-md h-full sticky top-0'>
 
-                    <Card border='ghost' className='mx-3'>
-                        <CardTitle>
-                            <Flex justifyContent='spaceBetween' className='px-3 m-3'>
-                                <Typography size='lg'>
-                                    Communities
-                                </Typography>
-                            </Flex>
-                        </CardTitle>
-                        <CardContent>
-                            <Flex>
-                                <Flex justifyContent='spaceBetween' className='py-2'>
-                                    <div class="flex mb-2 items-center">
 
-                                        <Avatar size='xs' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu2whjzwoBz71waeE07wh1L_sfjpdm6IIf7g&amp;usqp=CAU" />
 
-                                        <div class="flex flex-col">
-                                            <h3 class="text-default px-3 text-sm">Javascript</h3>
-                                            <p class="text-secondary px-3 space-y-1 text-xs">255 members</p>
-                                        </div>
-                                    </div>
 
-                                    <div class="flex mb-2">
-                                        <Button variant='custom' size='xs'>
-                                            <div className="flex pr-2 py-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-plus"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></svg>
-                                            </div>
-                                            <span className="text-xs">
-                                                Join
-                                            </span>
-                                        </Button>
-                                    </div>
+                <ResponsiveDrawer>
+
+                    <Flex direction='column' alignItems='none' justifyContent='spaceBetween' width='none' className='min-w-md max-w-md h-full sticky top-0'>
+
+                        <MiniCommunityList />
+
+                        <Separator />
+
+                        <Card border='ghost' className='mx-3'>
+                            <CardTitle>
+                                <Flex justifyContent='spaceBetween' className='px-3 m-3'>
+                                    <Typography size='lg'>
+                                        Users
+                                    </Typography>
                                 </Flex>
-                                <Flex justifyContent='spaceBetween' className='py-2'>
-                                    <div class="flex mb-2 items-center">
 
-                                        <Avatar size='xs' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu2whjzwoBz71waeE07wh1L_sfjpdm6IIf7g&amp;usqp=CAU" />
+                            </CardTitle>
+                            <CardContent>
+                            </CardContent>
+                            <CardFooter></CardFooter>
+                        </Card>
 
-                                        <div class="flex flex-col">
-                                            <h3 class="text-default px-3 text-sm">Angular</h3>
-                                            <p class="text-secondary px-3 space-y-1 text-xs">1k members</p>
-                                        </div>
-                                    </div>
+                    </Flex>
+                </ResponsiveDrawer>
 
-                                    <div class="flex mb-2">
-                                        <Button variant='custom' size='xs'>
-                                            <div className="flex pr-2 py-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-plus"><circle cx="12" cy="12" r="10" /><path d="M8 12h8" /><path d="M12 8v8" /></svg>
-                                            </div>
-                                            <span className="text-xs">
-                                                Join
-                                            </span>
-                                        </Button>
-                                    </div>
-                                </Flex>
-                            </Flex>
-
-                        </CardContent>
-                        <CardFooter>
-                            <Flex>
-                                <Button size='xs' width='none' variant='ghost' className='border border-secondary hover-border-custom'>See more</Button>
-                            </Flex>
-                        </CardFooter>
-                    </Card>
-
-                    <Separator />
-
-                    <Card border='ghost' className='mx-3'>
-                        <CardTitle>
-                            <Flex justifyContent='spaceBetween' className='px-3 m-3'>
-                                <Typography size='lg'>
-                                    Users
-                                </Typography>
-                            </Flex>
-
-                        </CardTitle>
-                        <CardContent>
-                        </CardContent>
-                        <CardFooter></CardFooter>
-                    </Card>
-
-                </Flex>
             </Flex>
-            {/* <div className="sidebar p-3 text-default w-80 grow-1 overflow-scroll h-screen sm:hidden md:hidden lg:display"> This is sidebar </div> */}
-            {/* </div> */}
+
 
         </React.Fragment>
     )

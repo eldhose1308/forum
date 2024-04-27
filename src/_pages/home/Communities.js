@@ -48,7 +48,10 @@ const Communities = () => {
             <Card size='sm'>
                 <CardHeader>
                     <Flex justifyContent='spaceBetween'>
-                        <Typography textVariant='bold'>#javascript</Typography>
+                        <div>
+                            <Typography textVariant='bold'>Mallu Page</Typography>
+                            <Typography variant='secondary'>500 members</Typography>
+                        </div>
                         <Typography variant='secondary'>123 posts</Typography>
 
                     </Flex>
@@ -60,7 +63,7 @@ const Communities = () => {
                 </CardContent>
                 <CardFooter>
                     <Flex justifyContent='spaceBetween'>
-                        <Button variant='outline'>Follow</Button>
+                        <Button variant='outline'>Join</Button>
                     </Flex>
                 </CardFooter>
             </Card>

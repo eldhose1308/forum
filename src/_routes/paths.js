@@ -7,4 +7,5 @@ export const PATHS = {
     tags: '/user/tags',
     profile: '/user/profile',
     communities: '/user/communities',
+    seeLater: '/user/see-later',
 }
